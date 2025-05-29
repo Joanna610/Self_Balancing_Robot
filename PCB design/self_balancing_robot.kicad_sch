@@ -5134,6 +5134,25 @@
 		)
 		(uuid "d399c35d-207a-4019-9574-9a7c768423f7")
 	)
+	(text_box "Accelerometer"
+		(exclude_from_sim no)
+		(at 158.75 95.25 0)
+		(size 120.65 60.96)
+		(stroke
+			(width 0)
+			(type dash_dot_dot)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "e05312e1-177e-47ba-a49f-ac0cb337bc3e")
+	)
 	(text_box "Power supply"
 		(exclude_from_sim no)
 		(at 17.78 161.29 0)
@@ -5367,6 +5386,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PB1"
+		(shape input)
+		(at 109.22 105.41 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "386bc567-1240-466f-b622-8a24caa87fad")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 102.4853 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -6075,28 +6116,6 @@
 			)
 		)
 	)
-	(global_label "PD6"
-		(shape input)
-		(at 109.22 105.41 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "bd8eec2c-748d-4564-bbfd-f5b285a7fa1d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 102.4853 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SCK"
 		(shape input)
 		(at 104.14 147.32 180)
@@ -6176,28 +6195,6 @@
 		(uuid "cc7faa15-ecf4-4ef2-87f2-98332328e58a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 225.5543 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "PB1"
-		(shape input)
-		(at 184.15 46.99 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "cee8c555-c0e4-4b85-b1c2-5cc9ccd3178d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 177.4153 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6396,6 +6393,28 @@
 		(uuid "f7b255f3-db67-4ecc-87a4-18dc42be45b4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 227.2476 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PD6"
+		(shape input)
+		(at 184.15 46.99 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f981c327-35aa-4a24-9025-9cd36283a617")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 177.4153 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
