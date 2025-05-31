@@ -20,8 +20,9 @@
 
 #include <stdlib.h> 
 
-int max(int a, int b) {
-    return (a > b) ? a : b;
+int max_int(int a, int b) {
+	if (a>b) return a;
+    return b;
 }
 
 int min(int a, int b) {
@@ -51,9 +52,10 @@ int main(void){
 	double error, prev_error = 0;
 	double pid_p, pid_i = 0, pid_d, pid;
 
-	float kp = 60;
-	float ki = 70;
-	float kd = 2.2;
+	float kp = 40;
+	float kd = 0.05;
+	float ki = 200;
+	
 
 	uint8_t ret = i2c_start(MPU6050_ADDRESS+I2C_WRITE);
 	if (ret == 1) SerialPrint("I2C cannot initialize!");
@@ -80,6 +82,9 @@ int main(void){
 
 		accPitch = -(atan2(accelX, sqrt(accelY*accelY + accelZ*accelZ))*180.0)/M_PI;
 		update(&kalman, accPitch, gyroY, dt);
+
+		
+		
 		error = kalman.K_angle;
 
 		//Proportional Error
@@ -95,24 +100,25 @@ int main(void){
 		pid = pid_p + pid_i + pid_d;
 
 		prev_error = error;
-
+		pid = abs(pid);
 		//speed = max(abs((int)pid) , 50);
-		speed = max(abs((int)pid) , 100);
-		speed = min(abs((int)pid) , 255);
-
-		SerialPrint("speed: ");
-		SerialPrintInt(pid);
-		SerialPrint("\r\n");/*
-		SerialPrint("speed: ");
-		SerialPrintInt16(speed);
-		SerialPrint("\r\n");
-*/		
-
+		speed = (int)abs(pid);
+		if (speed < 100) speed = 100;
+		if (speed > 255) speed = 255;
 		
+			SerialPrintInt(speed);
+			SerialPrint("\r\n");
 		if (error < -3) {
 			forward(speed);
-		} else if (error > 3){
+		} else if (error > 3) {
 			backward(speed);
+		} else {
+			stop();
+		}
+			
+
+		if (error < -90 || error > 90) {
+			stop();
 		}
 	}
 		
